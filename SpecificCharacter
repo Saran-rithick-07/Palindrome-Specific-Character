@@ -1,0 +1,34 @@
+package com.arrayPalin;
+
+import java.util.ArrayList;
+import java.util.List;
+
+		
+	public class Palindrome {
+
+		    public static List<Integer> findWordsContainingCharacter(String[] words, char[] characters) {
+		        List<Integer> indices = new ArrayList<>();
+
+		        for (int i = 0; i < words.length; i++) {
+		            String word = words[i];
+		            for (char character : characters) {
+		                if (word.indexOf(character) != -1) {
+		                    indices.add(i);
+		                    break; // Once we find the character, move to the next word
+		                }
+		            }
+		        }
+
+		        return indices;
+		    }
+
+		    public static void main(String[] args) {
+		        String[] words = {"apple", "banana", "orange", "grape"};
+		        char[] charactersToFind = {'x', 'a'};
+
+		        List<Integer> indices = findWordsContainingCharacter(words, charactersToFind);
+
+		        System.out.println("Indices of words containing character 'x' or 'a': " + indices);
+		    }
+		}
+		
